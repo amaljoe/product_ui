@@ -13,6 +13,7 @@ class FilterButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
+        width: 120,
         padding: EdgeInsets.only(top: 6, right: 20, left: 20),
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.all(Radius.circular(30))),
