@@ -44,6 +44,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -64,6 +66,8 @@ flutter:
     - family: BalooTammudu2
       fonts:
         - asset: fonts/BalooTammudu2-Regular.ttf
+        - asset: fonts/BalooTammudu2-Bold.ttf
+          weight: 700
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

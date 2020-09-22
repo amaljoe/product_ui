@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'components/contact_button.dart';
+import 'components/filter_button.dart';
+import 'components/item_card.dart';
+
 void main() {
   runApp(MaterialApp(
     theme: ThemeData.light(),
@@ -49,12 +53,14 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 20,
+            ),
             Text(
               'Your Choice',
               style: TextStyle(
                 fontFamily: 'BalooTammudu2',
-                fontSize: 30,
-                fontWeight: FontWeight.w300,
+                fontSize: 36,
               ),
             ),
             TextField(
@@ -71,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
                   )),
             ),
             SizedBox(
-              height: 50,
+              height: 20,
             ),
             Expanded(
               child: Row(
@@ -96,7 +102,9 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         Text('15: 30',
                             style: TextStyle(
-                                fontFamily: 'BalooTammudu2', fontSize: 30)),
+                                fontFamily: 'BalooTammudu2',
+                                fontWeight: FontWeight.w700,
+                                fontSize: 22)),
                         Text(
                           'Our contact',
                           style: TextStyle(
@@ -131,25 +139,43 @@ class _MainScreenState extends State<MainScreen> {
                             color: Colors.black45,
                           ),
                         ),
+                        FilterButton(
+                            color: Colors.blue,
+                            icon: Icons.cloud,
+                            text: 'cold'),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        FilterButton(
+                          color: Colors.orange,
+                          icon: Icons.wb_sunny,
+                          text: 'warm',
+                        ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Color(0xFFFFF6E9),
-                        borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(50))),
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 40.0),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFF6E9),
+                          borderRadius:
+                              BorderRadius.only(topLeft: Radius.circular(30))),
                       child: SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            ItemCard(),
-                            ItemCard(),
-                            ItemCard(),
+                            ItemCard(
+                              imagePath: 'images/bulb1.png',
+                            ),
+                            ItemCard(
+                              imagePath: 'images/bulb2.png',
+                            ),
+                            ItemCard(
+                              imagePath: 'images/bulb1.png',
+                            ),
                           ],
                         ),
                       ),
@@ -160,44 +186,6 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ContactButton extends StatelessWidget {
-  final Color color;
-  final IconData icon;
-
-  ContactButton({@required this.icon, @required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: color, borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: IconButton(
-        icon: Icon(
-          icon,
-          color: Colors.white,
-        ),
-        onPressed: () {},
-      ),
-    );
-  }
-}
-
-class ItemCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Color(0xFFFFDFB0),
-            borderRadius: BorderRadius.all(Radius.circular(25))),
-        width: 150,
-        height: 150,
       ),
     );
   }
