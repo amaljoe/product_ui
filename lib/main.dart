@@ -176,6 +176,9 @@ class _MainScreenState extends State<MainScreen> {
                             ItemCard(
                               imagePath: 'images/bulb1.png',
                             ),
+                            ItemCard(
+                              imagePath: 'images/bulb2.png',
+                            ),
                           ],
                         ),
                       ),
