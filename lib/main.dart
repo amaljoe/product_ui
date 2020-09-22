@@ -43,6 +43,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       backgroundColor: Colors.white,
+      resizeToAvoidBottomPadding: false,
       body: Padding(
         padding: EdgeInsets.only(left: 20.0),
         child: Column(
@@ -73,88 +74,86 @@ class _MainScreenState extends State<MainScreen> {
               height: 50,
             ),
             Expanded(
-              child: ListView(
-                shrinkWrap: true,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Top Light',
+                            style: TextStyle(
+                                fontFamily: 'BalooTammudu2', fontSize: 30)),
+                        Text(
+                          'Delivery time',
+                          style: TextStyle(
+                            fontFamily: 'BalooTammudu2',
+                            fontSize: 18,
+                            color: Colors.black45,
+                          ),
+                        ),
+                        Text('15: 30',
+                            style: TextStyle(
+                                fontFamily: 'BalooTammudu2', fontSize: 30)),
+                        Text(
+                          'Our contact',
+                          style: TextStyle(
+                            fontFamily: 'BalooTammudu2',
+                            fontSize: 18,
+                            color: Colors.black45,
+                          ),
+                        ),
+                        Row(
                           children: [
-                            Text('Top Light',
-                                style: TextStyle(
-                                    fontFamily: 'BalooTammudu2', fontSize: 30)),
-                            Text(
-                              'Delivery time',
-                              style: TextStyle(
-                                fontFamily: 'BalooTammudu2',
-                                fontSize: 18,
-                                color: Colors.black45,
-                              ),
-                            ),
-                            Text('15: 30',
-                                style: TextStyle(
-                                    fontFamily: 'BalooTammudu2', fontSize: 30)),
-                            Text(
-                              'Our contact',
-                              style: TextStyle(
-                                fontFamily: 'BalooTammudu2',
-                                fontSize: 18,
-                                color: Colors.black45,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                ContactButton(
-                                  color: Colors.teal,
-                                  icon: Icons.phone,
-                                ),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                ContactButton(
-                                  color: Colors.orange,
-                                  icon: Icons.location_on,
-                                ),
-                              ],
+                            ContactButton(
+                              color: Colors.teal,
+                              icon: Icons.phone,
                             ),
                             SizedBox(
-                              height: 10,
+                              width: 20,
                             ),
-                            Text(
-                              'Filters',
-                              style: TextStyle(
-                                fontFamily: 'BalooTammudu2',
-                                fontSize: 18,
-                                color: Colors.black45,
-                              ),
+                            ContactButton(
+                              color: Colors.orange,
+                              icon: Icons.location_on,
                             ),
                           ],
                         ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Color(0xFFFFF6E9),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50))),
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 40.0),
-                          child: Column(
-                            children: [
-                              ItemCard(),
-                              ItemCard(),
-                            ],
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'Filters',
+                          style: TextStyle(
+                            fontFamily: 'BalooTammudu2',
+                            fontSize: 18,
+                            color: Colors.black45,
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(0xFFFFF6E9),
+                        borderRadius:
+                            BorderRadius.only(topLeft: Radius.circular(50))),
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 40.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ItemCard(),
+                            ItemCard(),
+                            ItemCard(),
+                          ],
+                        ),
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
